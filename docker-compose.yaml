@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  numbergame-app:
+  numbergame:
     build:
       context: .
       dockerfile: Dockerfile
@@ -11,4 +11,6 @@ services:
       - "8080:8080"
     environment:
       - JAVA_TOOL_OPTIONS=-XX:MaxRAMPercentage=75.0
-    restart: unless-stopped
+      # Optional: force CLI to run in non-interactive env if you implement PLAY_CLI check in code
+      # - PLAY_CLI=true
+    restart: "no"
