@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  numbergame-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: akashtiwari05/number-guessing-game:prod
+    container_name: numbergame-container
+    ports:
+      - "8080:8080"
+    environment:
+      - JAVA_TOOL_OPTIONS=-XX:MaxRAMPercentage=75.0
+    restart: unless-stopped
